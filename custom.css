@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
+/* ==========================================================
+   TOKENS
+   ========================================================== */
+:root {
+    --gt-dark:      #1b1f23;
+    --gt-green:     #2f6f4e;
+    --gt-clay:      #ce967b;
+    --gt-clay-dark: #b26734;
+    --gt-cream:     #f5f4f1;
+    --gt-text:      #202124;
+}
+
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    color: var(--gt-text);
+    scroll-behavior: smooth;
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: "Poppins", sans-serif;
+}
+
+.section-title {
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--gt-dark);
+    margin-bottom: 10px;
+}
+
+.section-subtitle {
+    color: #5a5d61;
+    margin-bottom: 40px;
+}
+
+/* ==========================================================
+   NAVBAR
+   ========================================================== */
+.navbar {
+    background-color: rgba(27, 31, 35, 0.9);
+    backdrop-filter: blur(6px);
+    padding: 14px 0;
+}
+
+.navbar-brand {
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 600;
+    color: #f5f4f1;
+    padding: 8px 16px !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--gt-clay);
+}
+
+/* ==========================================================
+   CAROUSEL / BANNER
+   ========================================================== */
+#carouselGolty .carousel-item img {
+    height: 92vh;
+    object-fit: cover;
+    filter: brightness(0.55);
+}
+
+#carouselGolty .carousel-caption {
+    bottom: 15%;
+}
+
+#carouselGolty .carousel-caption h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#carouselGolty .carousel-caption h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* costura de pelota como separador de sección: firma visual del sitio */
+.section-productos,
+.section-historia,
+.section-video,
+.section-contacto {
+    padding: 90px 0;
+    position: relative;
+}
+
+.section-productos::before,
+.section-historia::before,
+.section-video::before,
+.section-contacto::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background-image: repeating-linear-gradient(
+        90deg,
+        var(--gt-clay) 0px, var(--gt-clay) 14px,
+        transparent 14px, transparent 26px
+    );
+    opacity: 0.6;
+}
+
+.section-productos { background-color: var(--gt-cream); }
+.section-historia  { background-color: #ffffff; }
+.section-video     { background-color: var(--gt-dark); color: #fff; }
+.section-video .section-subtitle { color: #c9c9c9; }
+.section-contacto  { background-color: var(--gt-cream); }
+
+/* ==========================================================
+   PASTILLAS DE INFORMACIÓN
+   ========================================================== */
+.pastilla {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    aspect-ratio: 3 / 4;
+}
+
+.pastilla-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.pastilla-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(27,31,35,0.92) 15%, rgba(27,31,35,0.15) 70%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px;
+    text-align: left;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.pastilla:hover .pastilla-overlay,
+.pastilla:focus-within .pastilla-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.pastilla-overlay h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.pastilla-overlay p {
+    font-size: 14px;
+    color: #d9d9d9;
+    margin-bottom: 12px;
+}
+
+/* En pantallas táctiles (sin hover confiable) mostramos siempre el texto */
+@media (hover: none) {
+    .pastilla-overlay {
+        opacity: 1;
+        transform: none;
+        background: linear-gradient(to top, rgba(27,31,35,0.95) 35%, rgba(27,31,35,0.2) 100%);
+    }
+}
+
+/* ==========================================================
+   NOTA PRINCIPAL / HISTORIA
+   ========================================================== */
+.section-historia p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #414247;
+}
+
+.historia-img {
+    width: 100%;
+    object-fit: cover;
+    max-height: 560px;
+}
+
+/* ==========================================================
+   VIDEO
+   ========================================================== */
+.video-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+/* ==========================================================
+   BOTONES
+   ========================================================== */
+.btn-golty {
+    background-color: var(--gt-clay);
+    color: #fff;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+}
+
+.btn-golty:hover {
+    background-color: var(--gt-clay-dark);
+    color: #fff;
+}
+
+/* ==========================================================
+   FOOTER
+   ========================================================== */
+.footer-golty {
+    background-color: var(--gt-dark);
+    color: #e7e7e7;
+    padding: 50px 0;
+}
+
+.redes-footer img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.2s ease;
+}
+
+.redes-footer img:hover {
+    transform: scale(1.15);
+}
+
+/* ==========================================================
+   RESPONSIVE - alineado a breakpoints de Bootstrap
+   xs: <576  sm: >=576  md: >=768  lg: >=992  xl: >=1200  xxl: >=1400
+   ========================================================== */
+
+/* md y menos: bajamos altura del carousel y paddings */
+@media (max-width: 767.98px) {
+    #carouselGolty .carousel-item img {
+        height: 70vh;
+    }
+    .section-productos,
+    .section-historia,
+    .section-video,
+    .section-contacto {
+        padding: 60px 0;
+    }
+}
+
+/* sm y menos: carousel más bajo, caption más compacto */
+@media (max-width: 575.98px) {
+    #carouselGolty .carousel-item img {
+        height: 60vh;
+    }
+    #carouselGolty .carousel-caption {
+        bottom: 8%;
+    }
+    .section-productos,
+    .section-historia,
+    .section-video,
+    .section-contacto {
+        padding: 45px 0;
+    }
+    .pastilla {
+        aspect-ratio: 4 / 3;
+    }
+}
